@@ -1,0 +1,7 @@
+def x1 = s(s(z))
+def x2 = s(z)
+def predIt(y, x) = if (eq(s(y), x)) then y else predIt(s(y), x)
+def pred(x) = if (eq(x, z)) then z else predIt(z, x)
+def add(x, y) = if (eq(x, z)) then y else add(pred(x), s(y))
+def res = add(x1, x2)
+res
