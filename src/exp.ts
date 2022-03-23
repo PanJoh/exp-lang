@@ -103,29 +103,6 @@ export function executeExpression(exp: Exp, vars: VarEnv, funcs: FuncEnv): Nat {
     }
 }
 
-function executeLambda(lamb: Lambda| string, funcs: FuncEnv, ...args: Nat[]) {
-    if (typeof lamb === 'string') {
-        lamb = funcs[lamb];
-    }
-
-
-    const vars = lamb.args.reduce((env, arg, idx) => {
-        if (idx >= args.length) {
-            return {
-                ...env,
-                [arg]: zero(),
-            };
-        }
-
-        return {
-            ...env,
-            [arg]: args[idx],
-        }
-    }, {} as VarEnv)
-
-
-    return executeExpression(lamb.exp, vars, funcs);
-}
 
 export interface Program {
     funcs: FuncEnv;
