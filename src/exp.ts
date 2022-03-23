@@ -1,4 +1,4 @@
-import { eq, Nat, natToNumber, numToNat, succ, zero } from "./naturals";
+import { eq, Nat, succ, zero } from "./naturals";
 
 export interface S {
     type: 'S';
